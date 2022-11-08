@@ -98,6 +98,7 @@ add_library(mavros_extras
   src/plugins/wheel_odometry.cpp
   src/plugins/guided_target.cpp
   src/plugins/mpc_full_state.cpp
+  src/plugins/mpc_motors_cmd.cpp
 )
 add_dependencies(mavros_extras
   ${catkin_EXPORTED_TARGETS}

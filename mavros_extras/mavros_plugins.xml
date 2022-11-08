@@ -99,4 +99,7 @@
   <class name="mpc_full_state" type="mavros::extra_plugins::MPCFullStatePlugin" base_class_type="mavros::plugin::PluginBase">
     <description>Receive mpc_full_state from the FCU.</description>
   </class>
+  <class name="mpc_motors_cmd" type="mavros::extra_plugins::MPCMotorsCMDPlugin" base_class_type="mavros::plugin::PluginBase">
+    <description>Send MPC motors commands to the FCU.</description>
+  </class>
 </library>

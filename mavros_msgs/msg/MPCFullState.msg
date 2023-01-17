@@ -7,7 +7,7 @@
 # vx, vy, vz are the velocity of the robot
 # qw qx qy qz are the quaternion orientation of the robot
 # wx wy wz are the angular velocity of the robot
-# m1 m2 m3 m4 are the motor speeds of the robot
+# Tb, Mx, My, Mz are the thrust and moments of the vehcile
 
 uint64 time_usec
 float32 x
@@ -23,7 +23,7 @@ float32 qz
 float32 wx
 float32 wy
 float32 wz
-float32 m1
-float32 m2
-float32 m3
-float32 m4
+float32 tb
+float32 mx
+float32 my
+float32 mz

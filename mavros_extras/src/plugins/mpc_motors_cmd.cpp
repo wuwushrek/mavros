@@ -52,11 +52,13 @@ private:
        msg.time_usec = req->time_usec; 
        msg.time_init = req->time_init;
        msg.dt = req->dt;
+       msg.mpc_on = req->mpc_on;
+       msg.tn = req->tn;
        for (int i = 0; i < mavros_msgs::MPCMotorsCMD::HORIZON_MPC; i++) {
-           msg.m1[i] = req->m1[i];
-           msg.m2[i] = req->m2[i];
-           msg.m3[i] = req->m3[i];
-           msg.m4[i] = req->m4[i];
+           msg.tb[i] = req->tb[i];
+           msg.mx[i] = req->mx[i];
+           msg.my[i] = req->my[i];
+           msg.mz[i] = req->mz[i];
        }
        UAS_FCU(m_uas)->send_message_ignore_drop(msg);
        // Warn the message was sent

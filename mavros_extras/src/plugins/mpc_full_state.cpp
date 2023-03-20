@@ -173,10 +173,12 @@ private:
         /**
          * Store motor values
          */
-        mpc->tb = mpc_msg.tb;
-        mpc->mx = mpc_msg.mx;
-        mpc->my = mpc_msg.my;
-        mpc->mz = mpc_msg.mz;
+        mpc->m1 = mpc_msg.m1;
+        mpc->m2 = mpc_msg.m2;
+        mpc->m3 = mpc_msg.m3;
+        mpc->m4 = mpc_msg.m4;
+        mpc->m5 = mpc_msg.m5;
+        mpc->m6 = mpc_msg.m6;
 
 		//! Publish the data
 		mpc_full_state_pub.publish(mpc);

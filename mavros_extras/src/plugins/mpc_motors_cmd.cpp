@@ -50,19 +50,15 @@ private:
     {
        mavlink::common::msg::MPC_MOTORS_CMD msg{};
        msg.time_usec = req->time_usec; 
-       msg.time_init = req->time_init;
-       msg.dt = req->dt;
        msg.mpc_on = req->mpc_on;
-       msg.tn = req->tn;
-       for (int i = 0; i < mavros_msgs::MPCMotorsCMD::HORIZON_MPC; i++) {
-           msg.tb[i] = req->tb[i];
-           msg.mx[i] = req->mx[i];
-           msg.my[i] = req->my[i];
-           msg.mz[i] = req->mz[i];
+       msg.weight_motors = req->weight_motors;
+       for (int i = 0; i < 6; i++) {
+            msg.motor_val_des[i] = req->motor_val_des[i];
+       }
+       for (int i = 0; i < 4; i++) {
+            msg.thrust_and_angrate_des[i] = req->thrust_and_angrate_des[i];
        }
        UAS_FCU(m_uas)->send_message_ignore_drop(msg);
-       // Warn the message was sent
-    //    ROS_INFO("MPC_MOTORS_CMD message sent");
     }
 };
 

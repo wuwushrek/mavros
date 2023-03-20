@@ -7154,15 +7154,10 @@
     <message id="368" name="MPC_MOTORS_CMD">
       <description>Full MPC Normalized motors commands</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-      <field type="uint64_t" name="time_init">Time to apply first command input</field>
-      <field type="float" name="dt">Timestep between each command inputs</field>
-      <!-- Limitations from mavlink message side here -->
-      <field type="float[10]" name="tb">Thrust value in 0, 1</field>
-      <field type="float[10]" name="mx">Roll rate moment in -1, 1</field>
-      <field type="float[10]" name="my">Pitch rate moment in -1, 1</field>
-      <field type="float[10]" name="mz">Yaw rate moment in -1, 1</field>
-      <field type="float" name="tn">Nominal thrust value in case of delays in the comm</field>
-      <field type="uint8_t" name="mpc_on">Specify if the mpc is on or not</field>
+      <field type="float[6]" name="motor_val_des">Motor imputs between 0 and 1</field>
+      <field type="float[4]" name="thrust_and_angrate_des">Thrust and angular rate desired command. T, wx, wy,wz. T is between 0 and 1 while wx, wy, wz have standard units</field>
+      <field type="uint8_t" name="mpc_on">Specify if the state of the mpc</field>
+      <field type="uint8_t" name="weight_motors">Constant parameter weighting if we track the angrate_des or motor output directly.Value between 0 and 100 </field>
     </message>
     <message id="369" name="MPC_FULL_STATE">
       <description>Full MPC State used for offline mpc-based control</description>
@@ -7180,10 +7175,12 @@
       <field type="float" name="wx" units="rad/s/s">Rollspeed : Body frame NED</field>
       <field type="float" name="wy" units="rad/s/s">Pitchspeed : Body frame NED</field>
       <field type="float" name="wz" units="rad/s/s">Yawspeed : Body frame NED</field>
-      <field type="float" name="tb">Thrust value in 0, 1</field>
-      <field type="float" name="mx">Roll rate moment in -1, 1</field>
-      <field type="float" name="my">Pitch rate moment in -1, 1</field>
-      <field type="float" name="mz">Yaw rate moment in -1, 1</field>
+      <field type="float" name="m1">Motor 1 input</field>
+      <field type="float" name="m2">Motor 2 input</field>
+      <field type="float" name="m3">Motor 3 input</field>
+      <field type="float" name="m4">Motor 4 input</field>
+      <field type="float" name="m5">Motor 5 input</field>
+      <field type="float" name="m6">Motor 6 input</field>
     </message>
     <message id="370" name="SMART_BATTERY_INFO">
       <description>Smart Battery information (static/infrequent update). Use for updates from: smart battery to flight stack, flight stack to GCS. Use BATTERY_STATUS for smart battery frequent updates.</description>

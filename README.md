@@ -141,5 +141,5 @@ cp ~/catkin_ws/src/mavlink/message_definitions/v1.0/common.xml modules/mavlink_c
 meson setup build .
 ninja -C build
 # Assuming ~/.local/bin is in your PATH, add the binary to your path so you can run it from anywhere
-cp build/mavlink-routerd ~/.local/bin
+cp build/src/mavlink-routerd ~/.local/bin
 ```
